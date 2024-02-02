@@ -1,0 +1,20 @@
+.hours {
+    border-bottom: 1px solid gray;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.zeroes{
+    padding-left: 18rem;
+    font-weight: 100;
+    font-size: small;
+}
+.zeroes span{
+    padding-left: 2.9rem;
+}
+.hour {
+    font-weight: 600;
+    font-size: smaller;
+    color: gray;
+}

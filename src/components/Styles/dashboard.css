@@ -1,0 +1,36 @@
+.maind{
+    width: 75vw;
+}
+.space {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    margin-bottom: 10px;
+
+}
+.allo{
+    background: #19105B;
+    color: white;
+    padding-left: 0.6rem;
+    margin-top: 0.5rem;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+}
+.heading{
+    background: #FFE5EE;
+    height: 8vh;
+}
+.heading p{
+    position: relative;
+    left: 0.5rem;
+    top: 0.1rem; 
+}
+.day {
+    position: relative;
+    top:0.6rem;
+    font-weight: 500;
+}
+.day1{
+    font-weight: 500;
+}

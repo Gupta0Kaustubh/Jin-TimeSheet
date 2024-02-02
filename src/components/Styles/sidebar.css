@@ -1,0 +1,15 @@
+.main {
+    width: 12rem;
+    background: linear-gradient(#19105b, #472067, #7c3375, #FF6196)
+}
+.name {
+    border-top: 1px solid white;
+    border-radius: 5px;
+    padding-top: 1rem;
+}
+.side_items{
+    font-size: 10px;
+}
+.side_items span{
+    padding-top: 0.5rem;
+}
