@@ -1,5 +1,5 @@
 import React from 'react'
-import { FcBullish } from "react-icons/fc";
+import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import '../Styles/sidebar.css'
 
@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <div className=' main d-flex flex-column p-3 text-white'>
       <div className='d-flex align-items-center justify-conetent-center g-2 px-1 py-3'>
-            <FcBullish fontSize={24}/>
+            <FaCanadianMapleLeaf fontSize={24}/>
       </div>
       <div className=' side_items flex-grow-1 d-flex flex-column'>
         <span className='fs-6'>Dashboard</span>

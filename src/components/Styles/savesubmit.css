@@ -1,0 +1,18 @@
+.buttons{
+    margin-top: 1.5rem;
+    margin-right: 1rem;
+}
+button{
+    width: 6rem;
+    border: none;
+    color: #ffffff;
+}
+button:nth-child(1){
+    background: #19105B;
+}
+button:nth-child(2){
+    background: #FF6196;
+}
+.arrow{
+    margin-left: 0.5rem;
+}

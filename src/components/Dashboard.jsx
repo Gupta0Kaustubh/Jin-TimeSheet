@@ -2,7 +2,8 @@ import React from 'react'
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import '../components/Styles/dashboard.css'
-import { IoIosArrowDropdown } from "react-icons/io";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 
 
 export const Dashboard = () => {
@@ -18,10 +19,10 @@ export const Dashboard = () => {
         </div>
         <div className='allo d-flex justify-content-between'>
           <div>Allocation Extension</div>
-          <div className='pe-3'><IoIosArrowDropdown fontSize={22} /></div>
+          <div className='pe-3'><MdKeyboardArrowDown fontSize={26} /></div>
         </div>
         <div className='allo'>Timesheet</div>
-        <div className='heading d-flex flex-row align-items-center justify-content-evenly'>
+        <div className='heading d-flex flex-row align-items-center justify-content-between ps-2 pe-5'>
           <span className='day1'>Project Type</span>
           <span className='day1'>Project Name</span>
           <span className='day1'>Task</span>

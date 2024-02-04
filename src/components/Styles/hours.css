@@ -6,12 +6,12 @@
     align-items: center;
 }
 .zeroes{
-    padding-left: 18rem;
+    padding-right: 4rem;
     font-weight: 100;
-    font-size: small;
 }
 .zeroes span{
     padding-left: 2.9rem;
+
 }
 .hour {
     font-weight: 600;

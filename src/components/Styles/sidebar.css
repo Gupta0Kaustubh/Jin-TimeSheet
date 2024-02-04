@@ -13,3 +13,9 @@
 .side_items span{
     padding-top: 0.5rem;
 }
+@media (max-width: 768px) {
+    .main {
+        display: none;
+        /* Hide the sidebar by default on smaller screens */
+    }
+}
