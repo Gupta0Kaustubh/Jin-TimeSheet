@@ -76,18 +76,20 @@ useEffect(() => {
     setContentItems(prevItems => prevItems.filter(item => item.id !== itemId));
   };
 
-  const [salesActivity, setsalesActivity] = useState([{ id: 'a'+1 }]);
+  const [salesActivity, setsalesActivity] = useState([{ idk: 'a'+1 }]);
+
   const [leng,setleng]=useState(salesActivity.length);
   useEffect(()=>{
     setleng(salesActivity.length);
   },[salesActivity.length])
 
   const handlesalesActivity = () => {
-    setsalesActivity(prevItems => [...prevItems, { id: 'a'+prevItems.length + 1 }]);
-  };
+  setsalesActivity(prevItems => [...prevItems, { idk: 'a'+(prevItems.length + 1) }]);
+};
+
 
   const handleRemovesalesActivity = (itemId) => {
-    setsalesActivity(prevItems => prevItems.filter(item => item.id !== itemId));
+    setsalesActivity(prevItems => prevItems.filter(item => item.idk !== itemId));
   };
 
     return (
@@ -114,12 +116,13 @@ useEffect(() => {
                 
                 {["mon", "tue", "wed", "thr", "fri", "sat", "sun"].map((day) => (
                 <div key={day} className='days'>
-                  <input type='text' maxLength="1" onChange={(e) => handlemon(e, item.id, day)} />
+                  <input type='text' className='input' maxLength="1" onChange={(e) => handlemon(e, item.id, day)} />
                 </div>
               ))}
-          <div className='days'>{weakTotal.find((totalItem) => totalItem.id === item.id)?.total || 0}</div>
+          <div className='ps-4 days'>{weakTotal.find((totalItem) => totalItem.id === item.id)?.total || 0}</div>
                     <div className='d-flex flex-row gap-2'>
-                        <div onClick={handleAddContentItem}><FaPlus className='plus'/></div>
+                        <div onClick={handleAddContentItem}><FaPlus className='plus'/>
+                        </div>
                 {item.id > 1 && (
         <div onClick={() => { handleRemoveContentItem(item.id) }}>
           <FaMinus className='plus' />
@@ -133,7 +136,7 @@ useEffect(() => {
             <div className='activities'>
             <div className='activity_name'>Sales Activity</div>
             {salesActivity.map((item) => (
-                <div className=' activity d-flex justify-content-between flex-row' key={item.id}>
+                <div className=' activity d-flex justify-content-between flex-row' key={item.idk}>
                 <div className='d-flex flex-row gap-3'>
                         <div><select className='drop' name="cars" id="cars">
   <option value="volvo">Project</option>
@@ -152,19 +155,19 @@ useEffect(() => {
                 
                 {["mon", "tue", "wed", "thr", "fri", "sat", "sun"].map((day) => (
                 <div key={day} className='days'>
-                  <input type='text' maxLength="1" onChange={(e) => handlemon(e, item.id, day)} />
+                  <input className='input' type='text' maxLength="1" onChange={(e) => handlemon(e, item.idk, day)} />
                 </div>
               ))}
-          <div className='days'>{weakTotal.find((totalItem) => totalItem.id === item.id)?.total || 0}</div>
-                    <div className='d-flex flex-row gap-2'>
-                        <div onClick={handlesalesActivity}><FaPlus className='plus'/></div>
-                {item.id > 1 && (
-        <div onClick={() => { handleRemovesalesActivity(item.id) }}>
+          <div className='ps-4 days'>{weakTotal.find((totalItem) => totalItem.id === item.idk)?.total || 0}</div>
+                    <div className=' d-flex flex-row gap-2'>
+                        <div onClick={handlesalesActivity}><FaPlus className='plus'/>
+                        </div>
+                {item.idk > 1 && (
+        <div onClick={() => { handleRemovesalesActivity(item.idk) }}>
           <FaMinus className='plus' />
         </div>
       )}
                     </div>
-                
                 </div>
             ))}
             </div>
@@ -179,7 +182,7 @@ useEffect(() => {
           <div className='days'>{daysValue.fri}</div>
           <div className='days'>{daysValue.sat}</div>
           <div className='days'>{daysValue.sun}</div>
-          <div className='days'>{Total}</div>
+          <div className='ps-4 days total'>{Total}</div>
             
         </div>
       </div>
@@ -191,8 +194,6 @@ useEffect(() => {
       </div>
     </div>
         </>
-    
-      
       
   )
 }
