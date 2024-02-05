@@ -39,9 +39,9 @@ export const Dashboard = ({ receivedData }) => {
         <div className='space d-flex flex-row'>
           <div className='total_hours'>Total Hours: {receivedData === 0 ? '0.0' : receivedData}</div>
           <div className=' d-flex align-items-center '>
-            <MdKeyboardArrowLeft />
+            <MdKeyboardArrowLeft className='arr'/>
             <div className='date_range px-2'>{getFormattedDate()}</div>
-            <MdKeyboardArrowRight />
+            <MdKeyboardArrowRight className='arr' />
           </div>
         </div>
         <div className='allo d-flex justify-content-between'>

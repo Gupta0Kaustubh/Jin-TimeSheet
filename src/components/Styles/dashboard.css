@@ -47,3 +47,7 @@
 .down_arrow{
     cursor: pointer;
 }
+.arr{
+    cursor: pointer;
+    color: gray;
+}
