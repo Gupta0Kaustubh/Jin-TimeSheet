@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import '../components/Styles/dashboard.css'
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
+import DropdownAllocation from './DropdownAllocation';
 
 
 
@@ -25,6 +27,12 @@ export const Dashboard = ({ receivedData }) => {
     return formattedDate;
   };
 
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!isDropdownVisible);
+  };
+
 
   return (
     <div className='maind d-flex flex-column'>
@@ -38,8 +46,12 @@ export const Dashboard = ({ receivedData }) => {
         </div>
         <div className='allo d-flex justify-content-between'>
           <div>Allocation Extension</div>
-          <div className='pe-3 down_arrow'><MdKeyboardArrowDown fontSize={26} /></div>
+          <div className={`pe-3 down_arrow ${isDropdownVisible ? 'true' : 'false'}`} onClick={toggleDropdown}>
+            {isDropdownVisible ? <MdKeyboardArrowUp fontSize={26} /> : <MdKeyboardArrowDown fontSize={26} />}  
+          </div>
+          
         </div>
+        {isDropdownVisible && <DropdownAllocation />}
         <div className='allo'>Timesheet</div>
         <div className='heading d-flex flex-row align-items-center justify-content-between ps-2 pe-5'>
           <span className='day1'>Project Type</span>

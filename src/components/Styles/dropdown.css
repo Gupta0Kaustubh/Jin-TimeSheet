@@ -1,0 +1,11 @@
+
+.heading1{
+    background: #FFE5EE;
+    height: 6vh;
+    font-size: 0.9rem;
+}
+.heading2{
+    color: gray;
+    font-size: small;
+    border-bottom: 1px solid gray;
+}

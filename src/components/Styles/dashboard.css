@@ -20,6 +20,7 @@
 .heading{
     background: #FFE5EE;
     height: 8vh;
+    font-size: 0.9rem;
 }
 .heading p{
     position: relative;
