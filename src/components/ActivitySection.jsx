@@ -100,7 +100,7 @@ useEffect(() => {
                 <div className=' activity d-flex justify-content-between flex-row' key={item.id}>
                 <div className='dropdown d-flex flex-row gap-3'>
                         <div><select className='drop' name="cars" id="cars">
-                        <option value="volvo">Project</option>
+                        <option value="project">Project</option>
                         <option value="volvo">BAU_001 Training & Project Knowledge</option>
   <option value="saab">BAU_002 People</option>
   <option value="mercedes">BAU_003 Delivery</option>
@@ -108,7 +108,7 @@ useEffect(() => {
   <option value="audi">BAU_005 Events</option>
 </select></div>
                 <div><select className='drop' name="cars" id="cars">
-  <option value="volvo">Task</option>
+  <option value="task">Task</option>
   <option value="volvo">Away Days</option>
   <option value="saab">Client Engagement Events</option>
   <option value="mercedes">Event Planning</option>
@@ -142,13 +142,13 @@ useEffect(() => {
                 <div className=' activity d-flex justify-content-between flex-row' key={itemk.idk}>
                 <div className='dropdown d-flex flex-row gap-3'>
                         <div><select className='drop' name="cars" id="cars">
-  <option value="volvo">Project</option>
+  <option value="project">Project</option>
   <option value="saab">Account Management</option>
   <option value="mercedes">Lead Generation</option>
   <option value="audi">Opportunity</option>
 </select></div>
                 <div><select className='drop' name="cars" id="cars">
-  <option value="volvo">Task</option>
+  <option value="task">Task</option>
   <option value="saab">OTPP - DD Support Healthcare (JB)</option>
   <option value="mercedes">FSN Capital - portfolio support (JT)</option>
   <option value="audi">EMR - business plan PMO (JT)</option>
@@ -167,7 +167,7 @@ useEffect(() => {
                     <div className='d-flex flex-row gap-2'>
                         <div onClick={handlesalesActivity}><FaPlus className='plus'/>
                         </div>
-                {itemk.idk > 1 && (
+                {itemk.idk > 'a'+1 && (
         <div onClick={() => { handleRemovesalesActivity(itemk.idk) }}>
           <FaMinus className='plus' />
         </div>

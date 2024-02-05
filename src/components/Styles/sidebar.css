@@ -5,11 +5,27 @@
     background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
     transition: width 0.3s ease; /* Add smooth transition for width changes */
 }
-
+.item {
+    cursor: pointer;
+    padding: 2px;
+}
+.item:nth-child(2){
+    background-color: #641b5d;
+    border-radius: 5px;
+}
+.item:hover, .item:active {
+    cursor: pointer;
+    background-color: #7c3375;
+    border-radius: 5px;
+    
+}
 .name {
     border-top: 1px solid white;
     border-radius: 5px;
     padding-top: 1rem;
+}
+.logo{
+    cursor: pointer;
 }
 
 .side_items {
