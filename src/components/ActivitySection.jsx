@@ -76,7 +76,7 @@ useEffect(() => {
     setContentItems(prevItems => prevItems.filter(item => item.id !== itemId));
   };
 
-  const [salesActivity, setsalesActivity] = useState([{ idk: 'a'+1 }]);
+  const [salesActivity, setSalesActivity] = useState([{ idk: 'a'+1 }]);
 
   const [leng,setleng]=useState(salesActivity.length);
   useEffect(()=>{
@@ -84,12 +84,12 @@ useEffect(() => {
   },[salesActivity.length])
 
   const handlesalesActivity = () => {
-  setsalesActivity(prevItems => [...prevItems, { idk: 'a'+(prevItems.length + 1) }]);
+  setSalesActivity(prevItemsk => [...prevItemsk, { idk: 'a'+(prevItemsk.length + 1) }]);
 };
 
 
-  const handleRemovesalesActivity = (itemId) => {
-    setsalesActivity(prevItems => prevItems.filter(item => item.idk !== itemId));
+  const handleRemovesalesActivity = (itemIdk) => {
+    setSalesActivity(prevItemsk => prevItemsk.filter(itemk => itemk.idk !== itemIdk));
   };
 
     return (
@@ -98,18 +98,21 @@ useEffect(() => {
             <div className='activity_name'>BAU Activity</div>
             {contentItems.map((item) => (
                 <div className=' activity d-flex justify-content-between flex-row' key={item.id}>
-                <div className='d-flex flex-row gap-3'>
+                <div className='dropdown d-flex flex-row gap-3'>
                         <div><select className='drop' name="cars" id="cars">
-  <option value="volvo">Project</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+                        <option value="volvo">Project</option>
+                        <option value="volvo">BAU_001 Training & Project Knowledge</option>
+  <option value="saab">BAU_002 People</option>
+  <option value="mercedes">BAU_003 Delivery</option>
+  <option value="audi">BAU_004 Sales</option>
+  <option value="audi">BAU_005 Events</option>
 </select></div>
                 <div><select className='drop' name="cars" id="cars">
   <option value="volvo">Task</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+  <option value="volvo">Away Days</option>
+  <option value="saab">Client Engagement Events</option>
+  <option value="mercedes">Event Planning</option>
+  <option value="audi">Learning Events & Conferences</option>
 </select></div>
                 <div><input type="text" className='drop' /></div> 
                 </div>
@@ -119,7 +122,7 @@ useEffect(() => {
                   <input type='text' className='input' maxLength="1" onChange={(e) => handlemon(e, item.id, day)} />
                 </div>
               ))}
-          <div className='ps-4 days'>{weakTotal.find((totalItem) => totalItem.id === item.id)?.total || 0}</div>
+          <div className='ps-4 hour'>{weakTotal.find((totalItem) => totalItem.id === item.id)?.total || 0}</div>
                     <div className='d-flex flex-row gap-2'>
                         <div onClick={handleAddContentItem}><FaPlus className='plus'/>
                         </div>
@@ -135,35 +138,37 @@ useEffect(() => {
             </div>
             <div className='activities'>
             <div className='activity_name'>Sales Activity</div>
-            {salesActivity.map((item) => (
-                <div className=' activity d-flex justify-content-between flex-row' key={item.idk}>
-                <div className='d-flex flex-row gap-3'>
+            {salesActivity.map((itemk) => (
+                <div className=' activity d-flex justify-content-between flex-row' key={itemk.idk}>
+                <div className='dropdown d-flex flex-row gap-3'>
                         <div><select className='drop' name="cars" id="cars">
   <option value="volvo">Project</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+  <option value="saab">Account Management</option>
+  <option value="mercedes">Lead Generation</option>
+  <option value="audi">Opportunity</option>
 </select></div>
                 <div><select className='drop' name="cars" id="cars">
   <option value="volvo">Task</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+  <option value="saab">OTPP - DD Support Healthcare (JB)</option>
+  <option value="mercedes">FSN Capital - portfolio support (JT)</option>
+  <option value="audi">EMR - business plan PMO (JT)</option>
+  <option value="audi">World Courier - Mike Collins (JT)</option>
+  <option value="audi">Hg - DD support for FY24 (JT / NM)</option>
 </select></div>
                 <div><input type="text" className='drop' /></div> 
                 </div>
                 
                 {["mon", "tue", "wed", "thr", "fri", "sat", "sun"].map((day) => (
                 <div key={day} className='days'>
-                  <input className='input' type='text' maxLength="1" onChange={(e) => handlemon(e, item.idk, day)} />
+                  <input type='text' className='input' maxLength="1" onChange={(e) => handlemon(e, itemk.idk, day)} />
                 </div>
               ))}
-          <div className='ps-4 days'>{weakTotal.find((totalItem) => totalItem.id === item.idk)?.total || 0}</div>
-                    <div className=' d-flex flex-row gap-2'>
+          <div className='ps-4 hour'>{weakTotal.find((totalItem) => totalItem.idk === itemk.idk)?.total || 0}</div>
+                    <div className='d-flex flex-row gap-2'>
                         <div onClick={handlesalesActivity}><FaPlus className='plus'/>
                         </div>
-                {item.idk > 1 && (
-        <div onClick={() => { handleRemovesalesActivity(item.idk) }}>
+                {itemk.idk > 1 && (
+        <div onClick={() => { handleRemovesalesActivity(itemk.idk) }}>
           <FaMinus className='plus' />
         </div>
       )}
@@ -173,24 +178,27 @@ useEffect(() => {
             </div>
             <div className='hourly'>
       <div className='hours d-flex flex-row justify-content-between'>
-        <div className='hour ps-2'>Total hours</div>
+        <div className='hourt ps-2'>Total hours</div>
         <div className='zeroes d-flex gap-4'>
-            <div className='days' >{daysValue.mon}</div>
-          <div className='days'>{daysValue.tue}</div>
-          <div className='days'>{daysValue.wed}</div>
-          <div className='days'>{daysValue.thr}</div>
-          <div className='days'>{daysValue.fri}</div>
-          <div className='days'>{daysValue.sat}</div>
-          <div className='days'>{daysValue.sun}</div>
-          <div className='ps-4 days total'>{Total}</div>
+          <div className='zero d-flex flex-row'>
+          <div style={{ color: parseInt(daysValue.mon) > 8 ? 'red' : '' }} className='hour'>{daysValue.mon}</div>
+          <div style={{ color: parseInt(daysValue.tue) > 8 ? 'red' : '' }} className='hour'>{daysValue.tue}</div>
+          <div style={{ color: parseInt(daysValue.wed) > 8 ? 'red' : '' }} className='hour'>{daysValue.wed}</div>
+          <div style={{ color: parseInt(daysValue.thr) > 8 ? 'red' : '' }} className='hour'>{daysValue.thr}</div>
+          <div style={{ color: parseInt(daysValue.fri) > 8 ? 'red' : '' }} className='hour'>{daysValue.fri}</div>
+          <div style={{ color: parseInt(daysValue.sat) > 8 ? 'red' : '' }} className='hour'>{daysValue.sat}</div>
+          <div style={{ color: parseInt(daysValue.sun) > 8 ? 'red' : '' }} className='hour'>{daysValue.sun}</div>
+          </div>
+            
+          <div className='ps-2 hour total'>{Total}</div>
             
         </div>
       </div>
       <div className='hours'>
-        <div className='hour ps-2'>Machine Hours</div>
+        <div className='hourt ps-2'>Machine Hours</div>
       </div>
       <div className='hours'>
-        <div className='hour ps-2'>Break Hours</div>
+        <div className='hourt ps-2'>Break Hours</div>
       </div>
     </div>
         </>

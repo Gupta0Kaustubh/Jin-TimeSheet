@@ -1,22 +1,26 @@
 .days {
-    width: 3rem;
+    width: 2rem;
     height: 2.2rem;
     justify-content: center;
     align-items: center;
-    background: #F7F9FB;
+    /* background: #F7F9FB; */
     border: none;
     
-    /* padding-left: 1rem; */
+    padding-left: 1rem;
 }
 .drop{
-    width: 6rem;
+    width: 5rem;
     height: 2.2rem;
     border: none;
     background: #F7F9FB;
-    font-weight: 200;
+    font-weight: 300;
+    font-size: smaller;
+}
+.dropdown{
+    padding-left: 6%;
 }
 .activity {
-    padding-left: 9.6rem;
+    padding-left: 5.6rem;
     padding-top: 0.8rem;
     padding-right: 1rem;
 }
@@ -42,6 +46,12 @@
     border: none;
 }
 .input{
-    border: none;
     gap:2rem;
+    height: 2.2rem;
+    width: 2.5rem;
+    background: #F7F9FB;
+    border: none;
 }
+.red_text {
+    color: red;
+  }

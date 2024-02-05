@@ -6,20 +6,39 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 
 
-export const Dashboard = () => {
+export const Dashboard = ({ receivedData }) => {
+
+  const getFormattedDate = () => {
+    const currentDate = new Date();
+    const currentDayOfWeek = currentDate.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+    const daysUntilMonday = currentDayOfWeek === 0 ? 6 : currentDayOfWeek - 1;
+    
+    // Calculate the start date (Monday of the current week)
+    currentDate.setDate(currentDate.getDate() - daysUntilMonday);
+    const startDate = currentDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    
+    // Calculate the end date (Sunday of the current week)
+    currentDate.setDate(currentDate.getDate() + 6);
+    const endDate = currentDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    const formattedDate = `${startDate} - ${endDate}`;
+    return formattedDate;
+  };
+
+
   return (
     <div className='maind d-flex flex-column'>
         <div className='space d-flex flex-row'>
-          <div>Total Hours: 0.0</div>
+          <div className='total_hours'>Total Hours: {receivedData === 0 ? '0.0' : receivedData}</div>
           <div className=' d-flex align-items-center '>
             <MdKeyboardArrowLeft />
-            <div className='px-2'>29 Jan 2024 - 04 Feb 2024</div>
+            <div className='date_range px-2'>{getFormattedDate()}</div>
             <MdKeyboardArrowRight />
           </div>
         </div>
         <div className='allo d-flex justify-content-between'>
           <div>Allocation Extension</div>
-          <div className='pe-3'><MdKeyboardArrowDown fontSize={26} /></div>
+          <div className='pe-3 down_arrow'><MdKeyboardArrowDown fontSize={26} /></div>
         </div>
         <div className='allo'>Timesheet</div>
         <div className='heading d-flex flex-row align-items-center justify-content-between ps-2 pe-5'>

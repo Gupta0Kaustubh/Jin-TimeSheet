@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { TbAffiliateFilled } from "react-icons/tb";
+
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import '../Styles/sidebar.css'
 
@@ -7,7 +8,7 @@ export default function Sidebar() {
   return (
     <div className=' main d-flex flex-column p-3 text-white'>
       <div className='d-flex align-items-center justify-conetent-center g-2 px-1 py-3'>
-            <FaCanadianMapleLeaf fontSize={24}/>
+            <TbAffiliateFilled fontSize={24}/>
       </div>
       <div className=' side_items flex-grow-1 d-flex flex-column'>
         <span className='fs-6'>Dashboard</span>

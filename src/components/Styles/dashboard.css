@@ -34,3 +34,15 @@
 .day1{
     font-weight: 500;
 }
+.total_hours{
+    font-weight: 600;
+    font-size: small;
+}
+.date_range{
+    font-weight: 600;
+    font-size: small;
+    color: gray;
+}
+.down_arrow{
+    cursor: pointer;
+}

@@ -8,13 +8,29 @@
 .zeroes{
     padding-right: 4rem;
     font-weight: 100;
+    
 }
-.zeroes span{
-    padding-left: 2.9rem;
 
-}
 .hour {
     font-weight: 600;
     font-size: smaller;
     color: gray;
+    width: 2rem;
+        height: 2.2rem;
+        justify-content: center;
+        align-items: center;
+        /* padding-right: 2rem; */
+}
+.zero{
+    gap: 2rem;
+    margin-left: 3%;
+}
+.hourt {
+    font-weight: 600;
+    font-size: smaller;
+    color: gray;
+        height: 2.2rem;
+        justify-content: center;
+        align-items: center;
+        /* padding-right: 2rem; */
 }

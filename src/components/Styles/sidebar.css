@@ -1,21 +1,46 @@
+/* sidebar.css */
+
 .main {
     width: 12rem;
-    background: linear-gradient(#19105b, #472067, #7c3375, #FF6196)
+    background: linear-gradient(#19105b, #472067, #7c3375, #FF6196);
+    transition: width 0.3s ease; /* Add smooth transition for width changes */
 }
+
 .name {
     border-top: 1px solid white;
     border-radius: 5px;
     padding-top: 1rem;
 }
-.side_items{
+
+.side_items {
     font-size: 10px;
 }
-.side_items span{
+
+.side_items span {
     padding-top: 0.5rem;
 }
+
+/* Add styling for the active link */
+.side_items .active-link {
+    color: /* Your desired active link color */;
+    font-weight: bold; /* Optional: Highlight the active link */
+    /* Add any additional styling for active links */
+}
+
 @media (max-width: 768px) {
     .main {
-        display: none;
-        /* Hide the sidebar by default on smaller screens */
+        width: 1px; /* Adjust the width for smaller screens */
+    }
+
+    .name {
+        padding-top: 0.5rem; /* Adjust spacing for the name section */
+    }
+
+    .side_items {
+        font-size: 8px; /* Adjust font size for smaller screens */
+    }
+
+    .side_items span {
+        padding-top: 0.3rem; /* Adjust spacing for smaller screens */
     }
 }
