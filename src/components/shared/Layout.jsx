@@ -22,8 +22,7 @@ const Layout = ({ setDataCallback }) => {
         <div style={{ paddingLeft: '2rem' }}>
           <Outlet />
           <ActivitySection setdata={setdata} />
-          
-          <SaveSubmitButton />
+          <SaveSubmitButton data={data} />
         </div>
       </div>
     </div>

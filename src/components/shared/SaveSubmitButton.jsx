@@ -3,11 +3,21 @@ import '../Styles/savesubmit.css'
 import { FaArrowRightLong } from "react-icons/fa6";
 
 
-export default function SaveSubmitButton() {
+export default function SaveSubmitButton({data}) {
+  function submit(){
+    if(parseInt(data)!=0){
+      alert('TimeSheet Submitted !!!');
+      window.location.reload();
+    }
+    else{
+      alert('Fill the form first before submitting !!!');
+    }
+    
+  }
   return (
     <div className='buttons d-flex flex-row gap-3 justify-content-end'>
       <button className='py-1 px-1'>Save</button>
-      <button>Submit<FaArrowRightLong className='arrow'/></button>
+      <button onClick={submit}>Submit<FaArrowRightLong className='arrow'/></button>
     </div>
   )
 }
