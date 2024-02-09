@@ -20,7 +20,6 @@ function App() {
         <Route path='/' element={<Layout setDataCallback={receiveDataFromLayout} />}>
           <Route index element={<Dashboard receivedData={receivedData} />} />
         </Route>
-        <Route path='login' element={<div>Login Page</div>} />
       </Routes>
     </Router>
   );

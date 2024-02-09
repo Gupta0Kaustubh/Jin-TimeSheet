@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import ActivitySection from '../ActivitySection';
-import SaveSubmitButton from './SaveSubmitButton';
 
 const Layout = ({ setDataCallback }) => {
   const [data, setData] = useState(0);
@@ -21,8 +20,8 @@ const Layout = ({ setDataCallback }) => {
         <Header />
         <div style={{ paddingLeft: '2rem' }}>
           <Outlet />
-          <ActivitySection setdata={setdata} />
-          <SaveSubmitButton data={data} />
+          <ActivitySection setdata={setdata} data={data} />
+          
         </div>
       </div>
     </div>

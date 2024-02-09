@@ -3,11 +3,33 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import './Styles/activity.css';
 import './Styles/hours.css'
+import SaveSubmitButton from './shared/SaveSubmitButton';
 
-export default function ActivitySection({setdata}) {
+export default function ActivitySection({setdata, data}) {
   
-    const [days, setDays] = useState([{id:0,mon: 0,tue: 0,wed:0,thr:0,fri:0,sat:0,sun:0}]);
-  const [daysValue, setDaysValue] = useState({mon: 0,tue: 0,wed:0,thr:0,fri:0,sat:0,sun:0});
+  const [days, setDays] = useState([
+    {
+      id: 0,
+      project: "",
+      task: "",
+      mon: 0,
+      tue: 0,
+      wed: 0,
+      thr: 0,
+      fri: 0,
+      sat: 0,
+      sun: 0,
+    },
+  ]);
+  const [daysValue, setDaysValue] = useState({
+    mon: 0,
+    tue: 0,
+    wed: 0,
+    thr: 0,
+    fri: 0,
+    sat: 0,
+    sun: 0,
+  });
   const [weakTotal,setWeakTotal]=useState([{id:0,total:0}]);
     const [Total,setTotal]=useState(0);
 
@@ -19,12 +41,29 @@ export default function ActivitySection({setdata}) {
       const existingItem = updatedDays.find((item) => item.id === itemId);
   
       if (existingItem) {
-        existingItem[day] = parseInt(value) || 0;
-      } else {
-        const newItem = { id: itemId, [day]: parseInt(value) || 0 };
+        if (day === "project") {
+          existingItem[day] = value;
+        } else if (day === "task") {
+          existingItem[day] = value;
+        } else {
+          existingItem[day] = parseInt(value) || 0;
+        }
+      } else  {
+        const newItem = {
+          id: itemId,
+          project: day === "project" ? value : "",
+          task: day === "task" ? value : "",
+          mon: day === "mon" ? parseInt(value) || 0 : 0,
+          tue: day === "tue" ? parseInt(value) || 0 : 0,
+          wed: day === "wed" ? parseInt(value) || 0 : 0,
+          thr: day === "thr" ? parseInt(value) || 0 : 0,
+          fri: day === "fri" ? parseInt(value) || 0 : 0,
+          sat: day === "sat" ? parseInt(value) || 0 : 0,
+          sun: day === "sun" ? parseInt(value) || 0 : 0,
+        };
         updatedDays.push(newItem);
       }
-  
+
       return updatedDays;
     });
     console.log(days)
@@ -99,20 +138,20 @@ useEffect(() => {
             {contentItems.map((item) => (
                 <div className=' activity d-flex justify-content-between flex-row' key={item.id}>
                 <div className='dropdown d-flex flex-row gap-3'>
-                        <div><select className='drop' name="cars" id="cars">
+                        <div><select className='drop' onChange={(e) => handlemon(e, item.id, "project")} name="cars" id="cars">
                         <option value="project">Project</option>
-                        <option value="volvo">BAU_001 Training & Project Knowledge</option>
-  <option value="saab">BAU_002 People</option>
-  <option value="mercedes">BAU_003 Delivery</option>
-  <option value="audi">BAU_004 Sales</option>
-  <option value="audi">BAU_005 Events</option>
+                        <option value="BAU_001 Training & Project Knowledge">BAU_001 Training & Project Knowledge</option>
+  <option value="BAU_002 People">BAU_002 People</option>
+  <option value="BAU_003 Delivery">BAU_003 Delivery</option>
+  <option value="BAU_004 Sales">BAU_004 Sales</option>
+  <option value="BAU_005 Events">BAU_005 Events</option>
 </select></div>
-                <div><select className='drop' name="cars" id="cars">
+                <div><select className='drop' onChange={(e) => handlemon(e, item.id, "task")} name="cars" id="cars">
   <option value="task">Task</option>
-  <option value="volvo">Away Days</option>
-  <option value="saab">Client Engagement Events</option>
-  <option value="mercedes">Event Planning</option>
-  <option value="audi">Learning Events & Conferences</option>
+  <option value="Away Days">Away Days</option>
+  <option value="Client Engagement Events">Client Engagement Events</option>
+  <option value="Event Planning">Event Planning</option>
+  <option value="Learning Events & Conferences">Learning Events & Conferences</option>
 </select></div>
                 <div><input type="text" className='drop' /></div> 
                 </div>
@@ -141,19 +180,19 @@ useEffect(() => {
             {salesActivity.map((itemk) => (
                 <div className=' activity d-flex justify-content-between flex-row' key={itemk.idk}>
                 <div className='dropdown d-flex flex-row gap-3'>
-                        <div><select className='drop' name="cars" id="cars">
+                        <div><select className='drop' onChange={(e) => handlemon(e, itemk.idk, "project")} name="cars" id="cars">
   <option value="project">Project</option>
-  <option value="saab">Account Management</option>
-  <option value="mercedes">Lead Generation</option>
-  <option value="audi">Opportunity</option>
+  <option value="Account Management">Account Management</option>
+  <option value="Lead Generation">Lead Generation</option>
+  <option value="Opportunity">Opportunity</option>
 </select></div>
-                <div><select className='drop' name="cars" id="cars">
+                <div><select className='drop' onChange={(e) => handlemon(e, itemk.idk, "task")} name="cars" id="cars">
   <option value="task">Task</option>
-  <option value="saab">OTPP - DD Support Healthcare (JB)</option>
-  <option value="mercedes">FSN Capital - portfolio support (JT)</option>
-  <option value="audi">EMR - business plan PMO (JT)</option>
-  <option value="audi">World Courier - Mike Collins (JT)</option>
-  <option value="audi">Hg - DD support for FY24 (JT / NM)</option>
+  <option value="OTPP - DD Support Healthcare (JB)">OTPP - DD Support Healthcare (JB)</option>
+  <option value="FSN Capital - portfolio support (JT)">FSN Capital - portfolio support (JT)</option>
+  <option value="EMR - business plan PMO (JT)">EMR - business plan PMO (JT)</option>
+  <option value="World Courier - Mike Collins (JT)">World Courier - Mike Collins (JT)</option>
+  <option value="Hg - DD support for FY24 (JT / NM)">Hg - DD support for FY24 (JT / NM)</option>
 </select></div>
                 <div><input type="text" className='drop' /></div> 
                 </div>
@@ -201,6 +240,7 @@ useEffect(() => {
         <div className='hourt ps-2'>Break Hours</div>
       </div>
     </div>
+    <SaveSubmitButton data={data} days={days} />
         </>
       
   )
