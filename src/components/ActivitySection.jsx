@@ -45,6 +45,8 @@ export default function ActivitySection({setdata, data}) {
           existingItem[day] = value;
         } else if (day === "task") {
           existingItem[day] = value;
+        } else if (day === "comment") {
+          existingItem[day] = value;
         } else {
           existingItem[day] = parseInt(value) || 0;
         }
@@ -53,6 +55,7 @@ export default function ActivitySection({setdata, data}) {
           id: itemId,
           project: day === "project" ? value : "",
           task: day === "task" ? value : "",
+          comment: day === "comment" ? value : "",
           mon: day === "mon" ? parseInt(value) || 0 : 0,
           tue: day === "tue" ? parseInt(value) || 0 : 0,
           wed: day === "wed" ? parseInt(value) || 0 : 0,
@@ -97,7 +100,7 @@ useEffect(() => {
   setDaysValue(newDayValue);
   setTotal(sum);
   console.log("total", newWeakTotal);
-}, [days,weakTotal]);
+}, [days]);
 
 
   const [contentItems, setContentItems] = useState([{ id: 1}]);
@@ -153,7 +156,7 @@ useEffect(() => {
   <option value="Event Planning">Event Planning</option>
   <option value="Learning Events & Conferences">Learning Events & Conferences</option>
 </select></div>
-                <div><input type="text" className='drop' /></div> 
+                <div><input type="text" onChange={(e) => handlemon(e, item.id, "comment")} className='drop' /></div> 
                 </div>
                 
                 {["mon", "tue", "wed", "thr", "fri", "sat", "sun"].map((day) => (
@@ -194,7 +197,7 @@ useEffect(() => {
   <option value="World Courier - Mike Collins (JT)">World Courier - Mike Collins (JT)</option>
   <option value="Hg - DD support for FY24 (JT / NM)">Hg - DD support for FY24 (JT / NM)</option>
 </select></div>
-                <div><input type="text" className='drop' /></div> 
+                <div><input type="text" onChange={(e) => handlemon(e, itemk.idk, "comment")} className='drop' /></div> 
                 </div>
                 
                 {["mon", "tue", "wed", "thr", "fri", "sat", "sun"].map((day) => (

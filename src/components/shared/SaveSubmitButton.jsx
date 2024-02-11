@@ -1,9 +1,8 @@
-import React from 'react'
-import '../Styles/savesubmit.css'
+import React from 'react';
+import '../Styles/savesubmit.css';
 import { FaArrowRightLong } from "react-icons/fa6";
 
-
-export default function SaveSubmitButton({data, days}) {
+export default function SaveSubmitButton({ data, days }) {
 
   const handleSaveData = async () => {
     try {
@@ -26,24 +25,24 @@ export default function SaveSubmitButton({data, days}) {
     }
   };
 
-  function save() {
-    // console.log({data});
-    alert('Form data saved !!!');
-  }
-  function submit(){
-    if(parseInt(data)!==0){
+  const submit = () => {
+    if (parseInt(data) !== 0) {
       alert('TimeSheet Submitted !!!');
       window.location.reload();
-    }
-    else{
+    } else {
       alert('Fill the form first before submitting !!!');
     }
-    
-  }
+  };
+
+  const save = () => {
+    // Implement your save functionality here if needed
+    alert('Form data saved !!!');
+  };
+
   return (
     <div className='buttons d-flex flex-row gap-3 justify-content-end'>
       <button onClick={save} className='py-1 px-1'>Save</button>
-      <button onClick={handleSaveData}>Submit<FaArrowRightLong className='arrow'/></button>
+      <button onClick={handleSaveData}>Submit<FaArrowRightLong className='arrow' /></button>
     </div>
-  )
+  );
 }
